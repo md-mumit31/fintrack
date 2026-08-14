@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FinTrack — Personal Finance Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="container navbar-content">
+
+            <a href="#" class="logo">
+                Fin<span>Track</span>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="#dashboard" class="active">
+                    Dashboard
+                </a>
+
+                <a href="#transactions">
+                    Transactions
+                </a>
+
+                <a href="#analytics">
+                    Analytics
+                </a>
+
+            </nav>
+
+            <div class="user-area">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                    title="Toggle dark mode"
+                    type="button"
+                >
+                    ◐
+                </button>
+
+                <button
+                    class="notification-btn"
+                    type="button"
+                >
+                    🔔
+                </button>
+
+                <div class="user-profile">
+
+                    <div class="avatar">
+                        MH
+                    </div>
+
+                    <span>
+                        Mumit
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main
+        class="container"
+        id="dashboard"
+    >
+
+        <!-- ================= HEADER ================= -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="greeting">
+                    Good evening 👋
+                </p>
+
+                <h1>
+                    Financial Overview
+                </h1>
+
+                <p class="subtitle">
+                    Understand your money. Control your future.
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    class="secondary-btn"
+                    id="exportBtn"
+                    type="button"
+                >
+                    ↓ Export CSV
+                </button>
+
+                <button
+                    class="primary-btn"
+                    id="scrollToFormBtn"
+                    type="button"
+                >
+                    + Add Transaction
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="summary-grid">
+
+            <!-- Balance -->
+
+            <article class="summary-card balance-card">
+
+                <div class="card-top">
+
+                    <span>
+                        Total Balance
+                    </span>
+
+                    <span class="card-icon">
+                        💰
+                    </span>
+
+                </div>
+
+                <h2 id="balance">
+                    $0.00
+                </h2>
+
+                <p
+                    class="card-description"
+                    id="balanceDescription"
+                >
+                    Available balance
+                </p>
+
+            </article>
+
+
+            <!-- Income -->
+
+            <article class="summary-card income-card">
+
+                <div class="card-top">
+
+                    <span>
+                        Total Income
+                    </span>
+
+                    <span class="card-icon">
+                        ↗
+                    </span>
+
+                </div>
+
+                <h2 id="totalIncome">
+                    $0.00
+                </h2>
+
+                <p class="positive">
+                    <span id="monthlyIncome">
+                        $0.00
+                    </span>
+
+                    this month
+                </p>
+
+            </article>
+
+
+            <!-- Expenses -->
+
+            <article class="summary-card expense-card">
+
+                <div class="card-top">
+
+                    <span>
+                        Total Expenses
+                    </span>
+
+                    <span class="card-icon">
+                        ↘
+                    </span>
+
+                </div>
+
+                <h2 id="totalExpense">
+                    $0.00
+                </h2>
+
+                <p class="negative">
+
+                    <span id="monthlyExpense">
+                        $0.00
+                    </span>
+
+                    this month
+
+                </p>
+
+            </article>
+
+
+            <!-- Transactions -->
+
+            <article class="summary-card">
+
+                <div class="card-top">
+
+                    <span>
+                        Transactions
+                    </span>
+
+                    <span class="card-icon">
+                        ↕
+                    </span>
+
+                </div>
+
+                <h2 id="transactionCount">
+                    0
+                </h2>
+
+                <p class="neutral">
+                    Total transactions
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= MAIN GRID ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- ================= ANALYTICS ================= -->
+
+            <article
+                class="panel spending-panel"
+                id="analytics"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Spending Overview
+                        </h2>
+
+                        <p>
+                            See where your money is going
+                        </p>
+
+                    </div>
+
+                    <select
+                        id="chartPeriod"
+                        class="period-select"
+                    >
+
+                        <option value="all">
+                            All Time
+                        </option>
+
+                        <option value="month">
+                            This Month
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="category-chart"
+                    id="categoryChart"
+                >
+                </div>
+
+
+                <div
+                    class="chart-total"
+                    id="chartTotal"
+                >
+                    $0.00 total spending
+                </div>
+
+            </article>
+
+
+            <!-- ================= ADD TRANSACTION ================= -->
+
+            <article
+                class="panel expense-panel"
+                id="expenseSection"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Add Transaction
+                        </h2>
+
+                        <p>
+                            Record income or expense
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Transaction Type -->
+
+                <div class="type-switch">
+
+                    <button
+                        class="type-btn active"
+                        data-type="expense"
+                        type="button"
+                    >
+                        Expense
+                    </button>
+
+                    <button
+                        class="type-btn"
+                        data-type="income"
+                        type="button"
+                    >
+                        Income
+                    </button>
+
+                </div>
+
+
+                <form id="transactionForm">
+
+                    <div class="form-group">
+
+                        <label for="transactionName">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="transactionName"
+                            placeholder="e.g. Groceries or Salary"
+                            maxlength="60"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="transactionAmount">
+                            Amount
+                        </label>
+
+                        <div class="amount-input">
+
+                            <span>
+                                $
+                            </span>
+
+                            <input
+                                type="number"
+                                id="transactionAmount"
+                                placeholder="0.00"
+                                min="0.01"
+                                step="0.01"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="transactionCategory">
+                            Category
+                        </label>
+
+                        <select
+                            id="transactionCategory"
+                            required
+                        >
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="transactionDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="transactionDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn full-width"
+                    >
+                        Add Transaction
+                    </button>
+
+                </form>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= TRANSACTIONS ================= -->
+
+        <section
+            class="panel transactions-panel"
+            id="transactions"
+        >
+
+            <div class="panel-header transactions-header">
+
+                <div>
+
+                    <h2>
+                        Recent Transactions
+                    </h2>
+
+                    <p>
+                        Manage your income and expenses
+                    </p>
+
+                </div>
+
+
+                <div class="transaction-controls">
+
+                    <div class="search-box">
+
+                        <span>
+                            ⌕
+                        </span>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search..."
+                        >
+
+                    </div>
+
+
+                    <select
+                        id="typeFilter"
+                        class="period-select"
+                    >
+
+                        <option value="all">
+                            All Types
+                        </option>
+
+                        <option value="income">
+                            Income
+                        </option>
+
+                        <option value="expense">
+                            Expense
+                        </option>
+
+                    </select>
+
+
+                    <select
+                        id="categoryFilter"
+                        class="period-select"
+                    >
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="transactions-list"
+                id="transactionsList"
+            >
+            </div>
+
+        </section>
+
+
+        <!-- ================= BUDGET PREVIEW ================= -->
+
+        <section class="budget-preview panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Monthly Spending
+                    </h2>
+
+                    <p>
+                        Track your current spending
+                    </p>
+
+                </div>
+
+                <span
+                    class="budget-status"
+                    id="budgetStatus"
+                >
+                    No budget set
+                </span>
+
+            </div>
+
+
+            <div class="budget-row">
+
+                <div>
+
+                    <strong id="budgetSpent">
+                        $0.00
+                    </strong>
+
+                    <span>
+                        spent this month
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <strong id="budgetLimit">
+                        $0.00
+                    </strong>
+
+                    <span>
+                        monthly budget
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-container">
+
+                <div
+                    class="progress-bar"
+                    id="budgetProgress"
+                ></div>
+
+            </div>
+
+
+            <button
+                class="secondary-btn"
+                id="setBudgetBtn"
+                type="button"
+            >
+                Set Monthly Budget
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= EDIT MODAL ================= -->
+
+    <div
+        class="modal-overlay"
+        id="editModal"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Edit Transaction
+                    </h2>
+
+                    <p>
+                        Update transaction details
+                    </p>
+
+                </div>
+
+                <button
+                    class="close-modal"
+                    id="closeModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editForm">
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editAmount">
+                        Amount
+                    </label>
+
+                    <div class="amount-input">
+
+                        <span>
+                            $
+                        </span>
+
+                        <input
+                            type="number"
+                            id="editAmount"
+                            min="0.01"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="editCategory"
+                        required
+                    >
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="editDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelEdit"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= BUDGET MODAL ================= -->
+
+    <div
+        class="modal-overlay"
+        id="budgetModal"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Monthly Budget
+                    </h2>
+
+                    <p>
+                        Set your monthly spending limit
+                    </p>
+
+                </div>
+
+                <button
+                    class="close-modal"
+                    id="closeBudgetModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="budgetForm">
+
+                <div class="form-group">
+
+                    <label for="budgetAmount">
+                        Monthly Budget
+                    </label>
+
+                    <div class="amount-input">
+
+                        <span>
+                            $
+                        </span>
+
+                        <input
+                            type="number"
+                            id="budgetAmount"
+                            min="0"
+                            step="0.01"
+                            placeholder="e.g. 1500"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelBudget"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Save Budget
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        Transaction added successfully.
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 FinTrack. Built with HTML, CSS & JavaScript.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
