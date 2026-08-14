@@ -34,7 +34,17 @@ No installation or account is required.
 
 ## 📸 Preview
 
-> **Project screenshots will be added here.**
+### 🖥️ Dashboard
+
+![FinTrack Dashboard](./assets/screenshots/dashboard.png)
+
+### 💳 Transaction Management
+
+![FinTrack Transactions](./assets/screenshots/transaction.png)
+
+### 📱 Responsive & Dark Mode
+
+![FinTrack Mobile](./assets/screenshots/record.png)
 
 ---
 
