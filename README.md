@@ -9,14 +9,24 @@ Built with **HTML5, CSS3, and Vanilla JavaScript**, FinTrack provides a fully fu
 <p align="center">
 
   <a href="https://md-mumit31.github.io/fintrack/">
-    <strong>🚀 View Live Demo</strong>
+    <strong>🚀 Live Demo</strong>
   </a>
 
   &nbsp;&nbsp;•&nbsp;&nbsp;
 
   <a href="https://github.com/md-mumit31/fintrack">
-    <strong>📂 View Source Code</strong>
+    <strong>📂 Source Code</strong>
   </a>
+
+</p>
+
+<p align="center">
+
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Responsive-Design-6C63FF?style=for-the-badge" alt="Responsive Design">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
 
 </p>
 
@@ -26,9 +36,9 @@ Built with **HTML5, CSS3, and Vanilla JavaScript**, FinTrack provides a fully fu
 
 ### 🚀 [Open FinTrack](https://md-mumit31.github.io/fintrack/)
 
-Try the application directly in your browser.
+Try the fully functional application directly in your browser.
 
-No installation or account is required.
+**No installation, account, or backend server is required.**
 
 ---
 
@@ -60,7 +70,7 @@ No installation or account is required.
 - Track total expenses
 - Track monthly income
 - Track monthly expenses
-- Count total transactions
+- Track total transactions
 
 ### 🔎 Transaction Management
 
@@ -76,7 +86,7 @@ No installation or account is required.
 - Set a monthly spending budget
 - Track current monthly spending
 - View budget progress
-- Receive visual budget status
+- Visual budget status
 - Identify when spending approaches or exceeds the budget
 
 ### 📊 Spending Analytics
@@ -101,7 +111,7 @@ No installation or account is required.
 - Persistent transaction storage
 - LocalStorage integration
 - Data survives browser refreshes
-- Export transactions as CSV
+- CSV transaction export
 
 ---
 
@@ -109,19 +119,19 @@ No installation or account is required.
 
 ### Frontend
 
-| Technology | Usage |
+| Technology | Purpose |
 |---|---|
-| HTML5 | Semantic page structure |
-| CSS3 | Layout, styling, animations & responsiveness |
-| JavaScript | Application logic and interactivity |
+| **HTML5** | Semantic page structure |
+| **CSS3** | Styling, layout, animations & responsive design |
+| **JavaScript ES6+** | Application logic and interactivity |
 
 ### Browser APIs
 
-| API | Usage |
+| API | Purpose |
 |---|---|
-| LocalStorage API | Persistent transaction storage |
-| DOM API | Dynamic interface updates |
-| Blob API | CSV file generation |
+| **LocalStorage API** | Persistent browser-based data storage |
+| **DOM API** | Dynamic interface updates |
+| **Blob API** | CSV file generation |
 
 ---
 
@@ -156,15 +166,13 @@ Users can:
 8. Search transactions
 9. Filter transactions
 
-All changes are immediately reflected throughout the dashboard.
+All changes are reflected immediately throughout the dashboard.
 
 ---
 
 ## 🎯 Monthly Budget
 
-Users can create a monthly spending limit and monitor their progress.
-
-The budget system provides visual feedback based on spending:
+Users can create a monthly spending limit and monitor their progress through a visual budget indicator.
 
 ### 🟢 Within Budget
 
@@ -178,7 +186,7 @@ Spending is getting close to the monthly budget.
 
 Monthly spending has exceeded the defined limit.
 
-This gives users a quick way to understand their current spending situation.
+This provides users with a quick overview of their current spending position.
 
 ---
 
@@ -191,7 +199,7 @@ The spending overview helps users understand where their money is going by displ
 - Category
 - Spending amount
 - Percentage of total spending
-- Visual spending bars
+- Visual spending indicators
 
 This makes financial patterns easier to understand at a glance.
 
@@ -201,7 +209,7 @@ This makes financial patterns easier to understand at a glance.
 
 FinTrack uses the browser's **LocalStorage API** to persist transaction data.
 
-This means transactions remain available after:
+This allows transactions to remain available after:
 
 - Refreshing the page
 - Closing the browser
@@ -209,13 +217,13 @@ This means transactions remain available after:
 
 The current version does not require a backend server or database.
 
-> **Note:** Since the application currently uses browser LocalStorage, financial data is stored locally on the user's device and is not synchronized between devices.
+> **Note:** Financial data is stored locally on the user's device and is not synchronized between devices.
 
 ---
 
 ## 📥 CSV Export
 
-FinTrack allows users to export their transactions into a CSV file.
+FinTrack allows users to export their transactions as a `.csv` file.
 
 The exported data includes:
 
@@ -227,34 +235,34 @@ Type
 Date
 ```
 
-This allows users to keep an external copy of their financial records or analyze the data using spreadsheet software.
+This makes it possible to keep an external copy of financial records or analyze them using spreadsheet software.
 
 ---
 
 ## 🌙 Dark Mode
 
-FinTrack includes a dark mode designed to provide a more comfortable viewing experience in low-light environments.
+FinTrack includes a dark mode designed to provide a comfortable viewing experience in low-light environments.
 
-The selected theme is stored locally so the preference can persist between sessions.
+The theme preference is stored locally so it can persist between sessions.
 
 ---
 
 ## 📱 Responsive Design
 
-The interface is designed to work across different screen sizes, including:
+The interface is designed to work across different screen sizes:
 
 - 🖥️ Desktop
 - 💻 Laptop
 - 📱 Mobile
 - 📟 Tablet
 
-The goal is to maintain a clean and usable experience regardless of screen size.
+The layout adapts to different screen sizes while maintaining a clean and usable experience.
 
 ---
 
 ## 🧠 What I Learned
 
-Building FinTrack helped me strengthen my understanding of modern frontend development, particularly:
+Building FinTrack helped strengthen my understanding of modern frontend development, including:
 
 - JavaScript DOM manipulation
 - Event listeners
@@ -280,10 +288,17 @@ Building FinTrack helped me strengthen my understanding of modern frontend devel
 ```text
 fintrack/
 │
+├── assets/
+│   └── screenshots/
+│       ├── dashboard.png
+│       ├── transaction.png
+│       └── record.png
+│
 ├── index.html
 ├── style.css
 ├── script.js
-└── README.md
+├── README.md
+└── LICENSE
 ```
 
 ### `index.html`
@@ -292,16 +307,16 @@ Contains the structure of the FinTrack dashboard and application interface.
 
 ### `style.css`
 
-Contains the complete visual styling, responsive layout, dashboard components, modals, forms, and UI states.
+Contains the visual styling, responsive layouts, dashboard components, modals, forms, animations, and UI states.
 
 ### `script.js`
 
 Handles:
 
-- Transactions
+- Transaction management
 - Dashboard calculations
-- Filtering
 - Searching
+- Filtering
 - Budget management
 - Spending analytics
 - LocalStorage
@@ -351,7 +366,7 @@ Future versions of FinTrack may include:
 - 🎯 Savings goals
 - 🔁 Recurring transactions
 - 🔔 Budget notifications
-- 📱 Improved mobile experience
+- 📱 Enhanced mobile experience
 - 🤖 AI-powered spending insights
 - 📈 Advanced charts
 - 🧾 Recurring bills
@@ -362,13 +377,19 @@ Future versions of FinTrack may include:
 
 ## 📌 Project Status
 
-**Version:** 2.0
-
+**Version:** 2.0  
 **Status:** Completed ✅
 
 FinTrack V2 is a fully functional client-side personal finance dashboard.
 
-The project is currently focused on demonstrating modern frontend development, JavaScript application logic, responsive UI design, and browser-based data persistence.
+The project demonstrates:
+
+- Modern frontend development
+- JavaScript application logic
+- Responsive UI design
+- CRUD functionality
+- Browser-based data persistence
+- Financial dashboard design
 
 ---
 
@@ -378,17 +399,23 @@ The project is currently focused on demonstrating modern frontend development, J
 
 **Frontend Developer**
 
-GitHub:  
-https://github.com/md-mumit31
-
-Live Project:  
-https://md-mumit31.github.io/fintrack/
+<p>
+  <a href="https://github.com/md-mumit31">
+    GitHub
+  </a>
+  &nbsp;•&nbsp;
+  <a href="https://md-mumit31.github.io/fintrack/">
+    FinTrack Live Demo
+  </a>
+</p>
 
 ---
 
 ## 📄 License
 
 This project is licensed under the **MIT License**.
+
+See the [`LICENSE`](./LICENSE) file for details.
 
 ---
 
